@@ -1,0 +1,17 @@
+.Comment-header{
+    padding:5px;
+}
+.Comment-creator{
+    background:rgb(75, 35, 168);
+    color: white;
+    padding:3px;
+    border-radius: 10px;
+    width: fit-content;
+    font-size: 10px;
+}
+
+.Comment-content{
+    padding: 5px 8px;
+    font-size: 10px;
+    border-bottom: 1px solid lightgray;
+}

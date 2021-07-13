@@ -1,0 +1,14 @@
+@media screen and (max-width: 1000px) {
+    .Header-image{
+        display: block;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .Left-navigation{
+        display: none;
+    }
+    .Main-content{
+        flex:1;
+    }
+  }

@@ -1,0 +1,9 @@
+.Create-comment{
+    padding:5px;
+    border-bottom: 1px solid lightgray;
+}
+
+.Create-comment input{
+    outline: none;
+    border:none;
+}
