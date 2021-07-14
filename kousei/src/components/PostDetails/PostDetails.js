@@ -60,7 +60,7 @@ export default function PostDetails(props) {
                 }
                 <IconContext.Provider value={{ className: "Post-icons" }}>
                     <div className="post-details-clickable-items">
-                        <div className="Likes-counter">{likes} likes</div>
+                        <div className="Likes-counter" style={{marginLeft:"0px"}}>{likes} likes</div>
                         {liked ?
                             <AiFillHeart onClick={onLike} /> :
                             <AiOutlineHeart onClick={onLike} />

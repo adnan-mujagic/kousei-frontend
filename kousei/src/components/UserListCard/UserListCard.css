@@ -1,0 +1,20 @@
+.User-list-card {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border-bottom: 1px solid lightgray;
+}
+
+.User-list-card-credentials {
+  margin-left: 10px;
+}
+
+.User-list-card-full-name {
+  font-size: 14px;
+  color: rgb(255, 105, 51);
+}
+
+.User-list-card-username {
+  font-size: 12px;
+  color: rgb(160, 160, 160);
+}

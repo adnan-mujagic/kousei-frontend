@@ -1,0 +1,6 @@
+.Likes-list {
+  max-height: 400px;
+  min-height: 200px;
+  overflow-y: scroll;
+  min-width: 200px;
+}

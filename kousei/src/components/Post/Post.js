@@ -7,6 +7,7 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { CgNotes } from "react-icons/cg";
 import Modal from "react-modal";
 import PostDetails from "../PostDetails/PostDetails";
+import LikesList from "../LikesList/LikesList";
 
 export default function Post(props) {
     const token = JSON.parse(sessionStorage.getItem("token"));
@@ -14,6 +15,7 @@ export default function Post(props) {
     const [liked, setLiked] = useState(props.post.likes.includes(decoded.uid));
     const [likes, setLikes] = useState(props.post.likes.length);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isLikesModalOpen, setIsLikesModalOpen] = useState(false);
     Modal.setAppElement("#root");
 
 
@@ -28,6 +30,14 @@ export default function Post(props) {
 
     const onModalClose = () => {
         setIsModalOpen(false);
+    }
+
+    const onLikesModalOpen = () =>{
+        setIsLikesModalOpen(true);
+    }
+
+    const onLikesModalClose = () => {
+        setIsLikesModalOpen(false);
     }
 
     const onHeartClick = async () => {
@@ -70,7 +80,7 @@ export default function Post(props) {
                 <IconContext.Provider value={{ className: "Post-icons" }}>
                     <div className="Caption"><strong>{props.post.creator.username}</strong>: {props.post.caption}</div>
                     <div className="Post-clickable-items">
-                        <div className="Likes-counter">{likes} likes</div>
+                        <div className="Likes-counter" onClick={onLikesModalOpen}>{likes} likes</div>
                         {liked ?
                             <AiFillHeart onClick={onHeartClick} style={{ color: "rgb(75, 35, 168)" }} /> :
                             <AiOutlineHeart onClick={onHeartClick} />
@@ -93,6 +103,17 @@ export default function Post(props) {
             >
                 <PostDetails post={props.post} onHeartClick={onHeartClick} liked={liked} />
                 <button style={{ marginTop: "10px" }} className="Colored-button" onClick={onModalClose}>Close</button>
+            </Modal>
+
+            <Modal
+                isOpen={isLikesModalOpen}
+                onRequestClose={onLikesModalClose}
+                contentLabel="Example Modal"
+                className="Modal"
+                overlayClassName="Overlay"
+
+            >
+                <LikesList post={props.post}/>
             </Modal>
         </div>
     )

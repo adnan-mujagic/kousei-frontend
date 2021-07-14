@@ -41,7 +41,7 @@ export default function ProfileCard(){
             <div className="Profile-card-credentials">
                 <h2>{user.full_name}</h2>
                 <p onClick={handleProfileClick}>@{user.username}</p>
-                <button className="Normal-button" onClick={handleProfileClick}>View Profile</button>
+                <button className="Normal-button" style={{marginTop:"7px"}} onClick={handleProfileClick}>View Profile</button>
             </div>
             
         </div>

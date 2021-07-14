@@ -31,21 +31,27 @@ body {
   font-size: 1em;
   color: rgb(75, 35, 168);
   border-radius: 20px;
-  padding: 4px 8px;
+  padding: 8px;
 }
 
 .Normal-button {
   border-radius: 16px;
   font-size: 12px;
-  padding: 5px;
+  padding: 8px;
   border: none;
+  font-weight: bold;
+}
+
+.Normal-button:hover {
+  cursor: pointer;
+  background-color: rgb(161, 161, 161);
+  transition: 0.3s;
 }
 
 .Colored-button:hover {
   cursor: pointer;
-  color: white;
   background-color: crimson;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .Section {

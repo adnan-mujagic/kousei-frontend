@@ -33,6 +33,11 @@
   font-weight: bold;
 }
 
+.Likes-counter:hover {
+  cursor: pointer;
+  color: rgb(75, 35, 168);
+}
+
 .Post-icons {
   color: rgb(32, 32, 32);
   font-size: 25px;
