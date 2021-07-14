@@ -1,76 +1,74 @@
-
-.Post-header{
-    display: flex;
-    align-items: center;
-    padding:5px 0px;
-    border-top:1px solid lightgray
+.Post-header {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+  border-top: 1px solid lightgray;
 }
-.Post-image{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    border: 0px;
+.Post-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  border: 0px;
 }
-.Post-creator{
-    margin-left: 5px;
-    color:rgb(160, 160, 160)
-}
-
-.Post-creator:hover{
-    cursor: pointer;
+.Post-creator {
+  margin-left: 5px;
+  color: rgb(160, 160, 160);
 }
 
-.Post-clickable-items{
-    padding: 5px 0px;
-    display: flex;
-    align-items: center;
+.Post-creator:hover {
+  cursor: pointer;
 }
 
-.Likes-counter{
-    color:rgb(32,32,32);
-    margin-left: 10px;
-    font-size: 12px;
-    font-weight: bold;
+.Post-clickable-items {
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
 }
 
-.Post-icons{
-    color:rgb(32,32,32);
-    font-size: 25px;
-    margin-left: 10px;
+.Likes-counter {
+  color: rgb(32, 32, 32);
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
-.Post-icons:hover{
-    cursor: pointer;
+.Post-icons {
+  color: rgb(32, 32, 32);
+  font-size: 25px;
+  margin-left: 10px;
 }
 
-.Caption{
-    padding:0px 8px;
-    font-size:12px;
-    color:rgb(32,32,32);
+.Post-icons:hover {
+  cursor: pointer;
 }
 
-.Modal{
-    position: absolute;
-    max-height: 600px;
-    max-width: 800px;
-    top:calc(50% - 10px);
-    left:calc(50% - 10px);
-    transform:translate(-50%,-50%);
-    border-radius: 10px;
-    padding: 10px;
-    background-color: white;
-    box-shadow: 0px 0px 20px 0px #313131;
-    outline: none;
-    margin: 10px;
+.Caption {
+  padding: 0px 8px;
+  font-size: 12px;
+  color: rgb(32, 32, 32);
 }
 
-.Overlay{
-    position:absolute;
-    top:0px;
-    left:0px;
-    right:0px;
-    bottom:0px;
-    background:rgba(245, 245, 245, 0.99)
+.Modal {
+  position: absolute;
+  max-height: 600px;
+  max-width: 800px;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 20px 0px #313131;
+  outline: none;
+  margin: 10px;
 }
 
+.Overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(245, 245, 245, 0.99);
+}

@@ -14,7 +14,7 @@ export default function Post(props) {
     const [liked, setLiked] = useState(props.post.likes.includes(decoded.uid));
     const [likes, setLikes] = useState(props.post.likes.length);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    Modal.setAppElement(document.getElementsByClassName("App"));
+    Modal.setAppElement("#root");
 
 
 
