@@ -38,13 +38,12 @@ body {
   border-radius: 16px;
   font-size: 12px;
   padding: 8px;
-  border: none;
-  font-weight: bold;
+  border: 1px solid lightgray;
 }
 
 .Normal-button:hover {
   cursor: pointer;
-  background-color: rgb(161, 161, 161);
+  background-color: rgb(219, 219, 219);
   transition: 0.3s;
 }
 

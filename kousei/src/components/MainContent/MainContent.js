@@ -5,28 +5,46 @@ import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import Post from "../Post/Post";
 import { IconContext } from "react-icons";
 import { RiDashboardLine } from "react-icons/ri";
+import {BiSearch} from "react-icons/bi";
 
 export default function MainContent() {
     const [posts, setPosts] = useState(null);
+    const [search, setSearch] = useState("");
     useEffect(() => {
         async function getPosts() {
-            const result = await fetchDataWithAuth("/posts", "GET");
+            const urlSuffix = search?"?search="+search:"";
+            const result = await fetchDataWithAuth("/posts"+urlSuffix, "GET");
             setPosts(result.data);
         }
         getPosts();
-    }, [])
+    }, [search])
 
     return (
         <div className="Main-content">
             <IconContext.Provider value={{ className: "Section-icon" }}>
                 <div className="Section"><RiDashboardLine /> <div>Dashboard</div></div>
+            
+                <div className="Main-content-search-container">
+                    <div className="Main-content-search-icon-wrap">
+                    <input className="Main-content-search" placeholder="Search for posts..." value={search} onChange={e=>setSearch(e.target.value)}/><BiSearch />
+                    </div>
+                
+                </div>
             </IconContext.Provider>
+            
             <div className="Main-content-posts">
                 {posts ?
-                    posts.map(post => (
-                        <Post key={post._id} post={post} />
-                    )) :
+                    <div>
+                    {posts.length>0?
+                        posts.map(post => (
+                            <Post key={post._id} post={post} />
+                        )) :
+                        <div className="Main-content-empty-warning">Wow, such empty!</div>
+                    
+                    }
+                    </div>:
                     null
+                    
                 }
             </div>
         </div>
