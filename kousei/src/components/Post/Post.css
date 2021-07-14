@@ -1,3 +1,7 @@
+.Post {
+  margin-bottom: 16px;
+  background-color: white;
+}
 .Post-header {
   display: flex;
   align-items: center;
@@ -21,9 +25,15 @@
 }
 
 .Post-clickable-items {
-  padding: 5px 0px;
   display: flex;
   align-items: center;
+}
+
+.Post-date {
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid lightgray;
+  font-size: 12px;
 }
 
 .Likes-counter {
@@ -49,7 +59,7 @@
 }
 
 .Caption {
-  padding: 0px 8px;
+  padding: 0px 10px;
   font-size: 12px;
   color: rgb(32, 32, 32);
 }

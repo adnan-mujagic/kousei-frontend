@@ -1,0 +1,28 @@
+.Order-picker {
+  border-top: 1px solid lightgray;
+  padding: 10px;
+}
+
+.Order-picker-icon {
+  font-size: 1.5em;
+  margin-left: 10px;
+  color: lightgray;
+}
+
+.Order-picker-icon:hover {
+  cursor: pointer;
+  color: purple;
+  animation: rotateIcon 1s 1;
+}
+
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-35deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

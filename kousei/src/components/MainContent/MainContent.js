@@ -6,30 +6,32 @@ import Post from "../Post/Post";
 import { IconContext } from "react-icons";
 import { RiDashboardLine } from "react-icons/ri";
 import {BiSearch} from "react-icons/bi";
+import OrderPicker from "../OrderPicker/OrderPicker";
 
 export default function MainContent() {
     const [posts, setPosts] = useState(null);
     const [search, setSearch] = useState("");
+    const [order, setOrder] = useState("normal");
     useEffect(() => {
         async function getPosts() {
-            const urlSuffix = search?"?search="+search:"";
+            const urlSuffix = "?search="+search+"&order="+order
             const result = await fetchDataWithAuth("/posts"+urlSuffix, "GET");
             setPosts(result.data);
         }
         getPosts();
-    }, [search])
+    }, [search, order])
 
     return (
         <div className="Main-content">
             <IconContext.Provider value={{ className: "Section-icon" }}>
                 <div className="Section"><RiDashboardLine /> <div>Dashboard</div></div>
-            
+                
                 <div className="Main-content-search-container">
                     <div className="Main-content-search-icon-wrap">
                     <input className="Main-content-search" placeholder="Search for posts..." value={search} onChange={e=>setSearch(e.target.value)}/><BiSearch />
                     </div>
-                
                 </div>
+                <OrderPicker order={order} setOrder={setOrder}/>
             </IconContext.Provider>
             
             <div className="Main-content-posts">

@@ -2,6 +2,7 @@ import "./Post.css"
 import { IconContext } from "react-icons";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import jwt from "../../generalized_functions/jwt"
+import prettyDate from "../../generalized_functions/prettyDate";
 import { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { CgNotes } from "react-icons/cg";
@@ -61,7 +62,7 @@ export default function Post(props) {
     return (
         <div className="Post">
             <div className="Post-header">
-                <div className="Profile-picture-container">
+                <div className="Profile-picture-container" style={{marginLeft:"8px"}}>
                     <img onClick={onProfileClick} className="Profile-picture" src={props.post.creator.profile_picture} alt="Creator" />
                 </div>
                 <div className="Post-creator" onClick={onProfileClick}>
@@ -88,6 +89,9 @@ export default function Post(props) {
 
                         <CgNotes onClick={onModalOpen} style={{ fontSize: "22px" }} />
 
+                    </div>
+                    <div className="Post-date">
+                        {prettyDate(props.post.created_at)}
                     </div>
                 </IconContext.Provider>
 

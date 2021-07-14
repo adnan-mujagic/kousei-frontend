@@ -4,6 +4,10 @@
   margin-right: 16px;
 }
 
+.Main-content-posts {
+  background-color: rgb(241, 241, 241);
+}
+
 .Main-content-search {
   border: none;
   outline: none;
