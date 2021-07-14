@@ -1,74 +1,80 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Profile-picture-container{
+.Profile-picture-container {
   height: 32px;
   width: 32px;
   border-radius: 50%;
-  border:1px solid rgb(75, 35, 168);
+  border: 1px solid rgb(75, 35, 168);
   overflow: hidden;
 }
 
-.Profile-picture-container:hover{
+.Profile-picture-container:hover {
   cursor: pointer;
 }
 
-.Profile-picture{
+.Profile-picture {
   object-fit: contain;
   height: 100%;
   width: 100%;
 }
 
-.Colored-button{
+.Colored-button {
   outline: none;
-  border:none;
+  border: none;
   font-size: 1em;
-  color:rgb(75, 35, 168);
+  color: rgb(75, 35, 168);
   border-radius: 20px;
   padding: 4px 8px;
-  
 }
 
-.Normal-button{
+.Normal-button {
   border-radius: 16px;
   font-size: 12px;
-  padding:5px;
-  border:none;
+  padding: 5px;
+  border: none;
 }
 
-.Colored-button:hover{
+.Colored-button:hover {
   cursor: pointer;
-  color:white;
+  color: white;
   background-color: crimson;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.Section{
+.Section {
   padding: 5px;
   display: flex;
   align-items: center;
-  
 }
-.Section div{
-  
-  color: rgb(160,160,160);
+.Section div {
+  color: rgb(160, 160, 160);
   font-size: 15px;
   margin-left: 5px;
 }
 
-.Section-icon{
-  color:rgb(160,160,160);
+.Section-icon {
+  color: rgb(160, 160, 160);
   font-size: 15px;
   vertical-align: middle;
 }
 
+.Warning-alert {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid crimson;
+  color: crimson;
+  background: rgb(241, 241, 241);
+  font-size: 12px;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

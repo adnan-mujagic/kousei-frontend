@@ -74,7 +74,7 @@ export default function PostDetails(props) {
                 <CreateComment post={post} setComments={setComments} />
                 <div className="comments">
                     {comments.map(comment => (
-                        <Comment key={comment._id} comment={comment} />
+                        <Comment key={comment._id} post_id={post._id} comment={comment} setComments={setComments}/>
                     ))}
                 </div>
             </div>

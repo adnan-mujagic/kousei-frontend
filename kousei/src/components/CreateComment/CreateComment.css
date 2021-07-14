@@ -1,9 +1,16 @@
-.Create-comment{
-    padding:5px;
-    border-bottom: 1px solid lightgray;
+.Create-comment {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-.Create-comment input{
-    outline: none;
-    border:none;
+.Create-comment-wrapper {
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.Create-comment input {
+  outline: none;
+  border: none;
+  width: 120px;
 }
