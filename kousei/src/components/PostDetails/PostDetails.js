@@ -70,7 +70,7 @@ export default function PostDetails(props) {
                 </IconContext.Provider>
             </div>
             <div className="Post-details-right">
-                <div style={{ padding: "5px" }}>Comments</div>
+                <div className="Comments-tag">Comments</div>
                 <CreateComment post={post} setComments={setComments} />
                 <div className="comments">
                     {comments.map(comment => (

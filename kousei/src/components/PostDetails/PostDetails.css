@@ -42,6 +42,10 @@
   color: rgb(32, 32, 32);
 }
 
+.Comments-tag {
+  margin-left: 5px;
+}
+
 @media screen and (max-width: 750px) {
   .Post-details {
     flex-direction: column;
@@ -49,5 +53,9 @@
 
   .Post-details-right {
     max-height: 200px;
+  }
+
+  .Comments-tag {
+    margin-left: 0px;
   }
 }
