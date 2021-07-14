@@ -1,0 +1,36 @@
+.Profile-card {
+  padding: 10px;
+  box-shadow: 0px 0px 10px 0px #7e7e7e;
+  display: flex;
+  border-radius: 20px;
+}
+
+.Profile-card-image {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid rgb(75, 35, 168);
+}
+
+.Profile-card-image img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.Profile-card-credentials {
+  margin-left: 10px;
+}
+
+.Profile-card-credentials h2 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+  color: rgb(75, 35, 168);
+}
+
+.Profile-card-credentials p {
+  color: rgb(80, 80, 80);
+  margin: 0px;
+}
