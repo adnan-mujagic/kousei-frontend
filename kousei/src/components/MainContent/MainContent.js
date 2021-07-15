@@ -7,6 +7,7 @@ import { IconContext } from "react-icons";
 import { RiDashboardLine } from "react-icons/ri";
 import {BiSearch} from "react-icons/bi";
 import OrderPicker from "../OrderPicker/OrderPicker";
+import Loading from "../Loading/Loading";
 
 export default function MainContent() {
     const [posts, setPosts] = useState(null);
@@ -45,7 +46,7 @@ export default function MainContent() {
                     
                     }
                     </div>:
-                    null
+                    <Loading />
                     
                 }
             </div>

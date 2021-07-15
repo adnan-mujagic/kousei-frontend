@@ -3,6 +3,7 @@ import jwt from "../../generalized_functions/jwt"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { IconContext } from "react-icons";
 import Comment from "../Comment/Comment";
+import Loading from "../Loading/Loading";
 import CreateComment from "../CreateComment/CreateComment";
 import { useState, useEffect } from "react";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
@@ -40,7 +41,7 @@ export default function PostDetails(props) {
     }
     if (!post) {
         return (
-            <div>Loading...</div>
+            <Loading />
         )
     }
     return (
@@ -71,12 +72,17 @@ export default function PostDetails(props) {
             </div>
             <div className="Post-details-right">
                 <div className="Comments-tag">Comments</div>
-                <CreateComment post={post} setComments={setComments} />
+                {post.comments_enabled?
+                    <div>
+                    <CreateComment post={post} setComments={setComments} />
                 <div className="comments">
                     {comments.map(comment => (
                         <Comment key={comment._id} post_id={post._id} comment={comment} setComments={setComments}/>
                     ))}
                 </div>
+                </div>:
+                <div className="Comments-disabled-notification">Comments are disabled for this post!</div>
+                }
             </div>
         </div>
     )

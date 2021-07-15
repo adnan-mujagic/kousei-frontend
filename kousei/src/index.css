@@ -41,6 +41,14 @@ body {
   border: 1px solid lightgray;
 }
 
+.Disabled-button {
+  border-radius: 16px;
+  font-size: 12px;
+  padding: 8px;
+  border: 1px solid lightgray;
+  color: lightgray;
+}
+
 .Normal-button:hover {
   cursor: pointer;
   background-color: rgb(219, 219, 219);

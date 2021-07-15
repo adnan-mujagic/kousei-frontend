@@ -40,7 +40,11 @@ export default function CreateComment(props) {
         }
         <form className="Create-comment" onSubmit={handleSubmit}>
             <input placeholder="Add a comment..." value={comment} onChange={(e) => { setComment(e.target.value) }} />
-            <button className="Normal-button" type="submit">Submit</button>
+            {comment.length>=2?
+                <button className="Normal-button" type="submit">Submit</button>:
+                <button disabled className="Disabled-button">Submit</button>
+            }
+            
         </form>
         </div>
         

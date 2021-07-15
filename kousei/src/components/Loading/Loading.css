@@ -1,0 +1,22 @@
+.Loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.Loading-icon {
+  color: purple;
+  font-size: 25px;
+  animation: rotation 1s infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
