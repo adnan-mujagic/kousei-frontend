@@ -1,6 +1,7 @@
 .Profile-post {
   overflow: hidden;
   border: 1px solid lightgray;
+  position: relative;
 }
 
 .Profile-post img {

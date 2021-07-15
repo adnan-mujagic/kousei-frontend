@@ -12,6 +12,7 @@
 
 .User-profile-right {
   margin-left: 20px;
+  margin-right: 10px;
   flex: 0.7;
 }
 
@@ -63,7 +64,23 @@
 .User-profile-post-container {
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.Profile-button {
+  text-align: center;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  background: rgb(241, 241, 241);
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.Profile-button:hover {
+  cursor: pointer;
 }

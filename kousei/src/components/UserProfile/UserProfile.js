@@ -7,27 +7,74 @@ import ProfilePost from "../ProfilePost/ProfilePost";
 import UserProfileOrderPicker from "../UserProfileOrderPicker/UserProfileOrderPicker";
 import {BiBook, BiUserCircle, BiGridAlt, BiEnvelope} from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
+import jwt from "./../../generalized_functions/jwt"
+
+const token = JSON.parse(sessionStorage.getItem("token"));
+const loggedInUser = jwt(token.token);
+
+const isFollowed = (followers) => {
+    console.log(followers);
+    if(followers.includes(loggedInUser.uid)){
+        return true;
+    }
+    return false;
+}
+
+const checkOwner = (userId) => {
+    return loggedInUser.uid===userId;
+}
 
 export default function UserProfile(props){
     const {id} = useParams();
+    
 
     const [user, setUser] = useState(null);
     const [userPosts, setUserPosts] = useState(null);
     const [order, setOrder] = useState("normal")
+    const [following, setFollowing] = useState(null)
+    const [isOwner, setIsOwner] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    const onFollowClick = async () => {
+        const res = await fetchDataWithAuth("/users/"+id+"/followers", "PUT");
+        if(!res.data){
+            alert(res.status);
+        }
+        else{
+            setFollowing(true);
+            setUser(res.data);
+        }
+    }
+
+    const onUnfollowClick = async () => {
+        const res = await fetchDataWithAuth("/users/"+id+"/unfollow", "PUT");
+        if(!res.data){
+            alert(res.status);
+        }
+        else{
+            setFollowing(false);
+            setUser(res.data);
+        }
+    }
 
     useEffect(() => {
         async function getUser(){
-            let user = await fetchDataWithAuth("/users/"+id, "GET");
-            if(!user.data){
-                alert(user.status);
+            let retrievedUser = await fetchDataWithAuth("/users/"+id, "GET");
+            if(!retrievedUser.data){
+                alert(retrievedUser.status);
             }
             
             else{
-                setUser(user.data);
+                setUser(retrievedUser.data);
+                setIsOwner(checkOwner(retrievedUser.data._id));
+                if(!isOwner){
+                    setFollowing(isFollowed(retrievedUser.data.followers));
+                }
+                setLoading(false);
             }
         }
         getUser();
-    }, [id])
+    }, [id, isOwner])
 
     useEffect(() => {
         async function getPosts(){
@@ -59,6 +106,15 @@ export default function UserProfile(props){
                     <div className="User-profile-information">
                         <div className="User-profile-full-name">{user.full_name}</div>
                         <div className="User-profile-username">@{user.username}</div>
+                        {!loading && isOwner?
+                            null:
+                            <div>
+                                {following?<div className="Profile-button" onClick={onUnfollowClick}>Unfollow</div>:<div className="Profile-button" onClick={onFollowClick}>Follow</div>}
+                            </div>
+                        }
+
+                        
+                        
                         <div className="User-profile-follow-data"><div className="user-info-icon-wrapper"><BiUserCircle/></div>{user.followers.length} followers</div>
                         {userPosts?
                             <div className="User-profile-posts-data"><div className="user-info-icon-wrapper"><BiGridAlt /></div>{userPosts.length} posts</div>:
@@ -81,7 +137,7 @@ export default function UserProfile(props){
                 <div className="User-profile-post-container">
                     {userPosts.length===0?<div>This user has no posts yet!</div>:
                     userPosts.map(post => (
-                        <ProfilePost post = {post} />
+                        <ProfilePost key={post._id} post = {post} />
                     ))}
                 </div>
             </div>:

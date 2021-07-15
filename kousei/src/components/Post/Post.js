@@ -22,7 +22,7 @@ export default function Post(props) {
 
 
     const onProfileClick = () => {
-        window.location = "/user/" + props.post.creator._id;
+        window.location = "/users/" + props.post.creator._id;
     }
 
     const onModalOpen = () => {
