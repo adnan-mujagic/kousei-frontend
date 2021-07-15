@@ -1,0 +1,69 @@
+.User-profile {
+  display: flex;
+  margin-top: 20px;
+}
+
+.User-profile-left {
+  padding: 10px;
+  flex: 0.3;
+
+  max-width: 210px;
+}
+
+.User-profile-right {
+  margin-left: 20px;
+  flex: 0.7;
+}
+
+.User-profile-full-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(255, 105, 51);
+  margin-top: 10px;
+}
+
+.User-profile-username {
+  color: rgb(143, 143, 143);
+  margin-bottom: 20px;
+}
+
+.User-info-icons {
+  font-size: 16px;
+  color: rgb(143, 143, 143);
+  vertical-align: middle;
+}
+
+.user-info-icon-wrapper {
+  margin-right: 5px;
+}
+
+.User-profile-bio {
+  display: flex;
+  color: rgb(100, 100, 100);
+}
+
+.User-profile-follow-data {
+  display: flex;
+}
+
+.User-profile-posts-data {
+  display: flex;
+}
+
+@media screen and (max-width: 750px) {
+  .User-profile {
+    flex-direction: column;
+  }
+
+  .User-profile-right {
+    margin-left: 10px;
+  }
+}
+
+.User-profile-post-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}

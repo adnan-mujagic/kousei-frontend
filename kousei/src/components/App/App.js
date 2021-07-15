@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';
+import UserProfile from '../UserProfile/UserProfile';
 import useToken from './useToken';
 
 
@@ -28,6 +29,8 @@ function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/users/:id" children={<UserProfile />}>
           </Route>
         </Switch>
       </BrowserRouter>

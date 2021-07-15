@@ -1,0 +1,25 @@
+.User-profile-order-picker {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+}
+
+.Order-item {
+  display: flex;
+  margin-right: 20px;
+  position: relative;
+  bottom: -1px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.Order-item:hover {
+  cursor: pointer;
+  border-bottom: 2px solid gray;
+}
+
+.User-profile-order-picker-icon {
+  color: rgb(100, 100, 100);
+  margin-right: 10px;
+}
