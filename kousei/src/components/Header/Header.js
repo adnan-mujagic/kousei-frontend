@@ -24,19 +24,23 @@ export default function Header() {
         window.location = "/login";
     }
 
+    const onProfileImageClick = () => {
+        window.location = "/users/"+user._id;
+    }
+
     const onHeaderClick = () => {
         window.location = "/dashboard";
     }
     return (
         <div className="Header">
-            <div className="Header-left" onClick={onHeaderClick}>kousei</div>
+            <div className="Header-left"><button onClick={onHeaderClick}>kousei</button></div>
 
             {loggedIn ?
                 <div className="Header-right">
                     <button className="Colored-button" onClick={handleLogOut}>Log Out</button>
                     {user ?
                         <div className="Profile-picture-container Header-image">
-                            <img className="Profile-picture" alt="User" src={user.profile_picture} />
+                            <img className="Profile-picture" alt="User" src={user.profile_picture} onClick={onProfileImageClick}/>
                         </div> :
                         null
                     }

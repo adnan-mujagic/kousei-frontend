@@ -117,7 +117,7 @@ export default function UserProfile(props){
                         {!loading && isOwner?
                             null:
                             <div>
-                                {following?<div className="Profile-button" onClick={onUnfollowClick}>Unfollow</div>:<div className="Profile-button" onClick={onFollowClick}>Follow</div>}
+                                {following?<button className="Profile-button" onClick={onUnfollowClick}>Unfollow</button>:<button className="Profile-button" onClick={onFollowClick}>Follow</button>}
                             </div>
                         }
 

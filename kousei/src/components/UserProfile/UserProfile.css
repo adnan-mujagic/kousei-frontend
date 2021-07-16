@@ -75,6 +75,8 @@
 
 .Profile-button {
   text-align: center;
+  display: block;
+  width: 100%;
   padding: 5px;
   border-radius: 3px;
   border: 1px solid lightgray;
@@ -97,5 +99,10 @@
 
   .User-profile-information {
     width: 100%;
+  }
+
+  .User-profile-post-container {
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
