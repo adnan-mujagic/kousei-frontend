@@ -16,13 +16,18 @@ if(token){
 }
 
 const isFollowed = (followers) => {
-    console.log(followers);
+    
     if(!loggedInUser){
         return false;
     }
-    else if(followers.includes(loggedInUser.uid)){
-        return true;
+    
+    for(let i=0; i<followers.length; i++){
+        console.log(followers[i])
+        if(followers[i]._id === loggedInUser.uid){
+            return true;
+        }
     }
+    
     return false;
 }
 
@@ -100,6 +105,10 @@ export default function UserProfile(props){
     const onFollowersClick = () => {
         window.location = "/users/"+user._id+"/followers"
     }
+
+    const onFollowingClick = () => {
+        window.location = "/users/"+user._id+"/following"
+    }
     
     if(!user){
         return(
@@ -129,7 +138,7 @@ export default function UserProfile(props){
                         <div className="User-profile-follow-data">
                             <div className="user-info-icon-wrapper"><BiUserCircle/></div>
                             <button onClick={onFollowersClick}>{user.followers.length} followers, </button>
-                            <button>{user.following.length} following</button>
+                            <button onClick={onFollowingClick}>{user.following.length} following</button>
                         </div>
                         {userPosts?
                             <div className="User-profile-posts-data"><div className="user-info-icon-wrapper"><BiGridAlt /></div>{userPosts.length} posts</div>:
