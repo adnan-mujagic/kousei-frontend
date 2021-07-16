@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';
 import UserProfile from '../UserProfile/UserProfile';
+import UserFollowers from '../UserFollowers/UserFollowers';
 import useToken from './useToken';
 
 
@@ -30,7 +31,9 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/users/:id" children={<UserProfile />}>
+          <Route exact path="/users/:id" children={<UserProfile />}>
+          </Route>
+          <Route exact path="/users/:id/followers" children={<UserFollowers />}>
           </Route>
         </Switch>
       </BrowserRouter>

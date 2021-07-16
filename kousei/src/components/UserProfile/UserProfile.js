@@ -97,6 +97,9 @@ export default function UserProfile(props){
         getPosts()
     }, [id, order, setOrder])
 
+    const onFollowersClick = () => {
+        window.location = "/users/"+user._id+"/followers"
+    }
     
     if(!user){
         return(
@@ -123,7 +126,11 @@ export default function UserProfile(props){
 
                         
                         
-                        <div className="User-profile-follow-data"><div className="user-info-icon-wrapper"><BiUserCircle/></div>{user.followers.length} followers</div>
+                        <div className="User-profile-follow-data">
+                            <div className="user-info-icon-wrapper"><BiUserCircle/></div>
+                            <button onClick={onFollowersClick}>{user.followers.length} followers, </button>
+                            <button>{user.following.length} following</button>
+                        </div>
                         {userPosts?
                             <div className="User-profile-posts-data"><div className="user-info-icon-wrapper"><BiGridAlt /></div>{userPosts.length} posts</div>:
                             null

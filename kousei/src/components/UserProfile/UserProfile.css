@@ -89,6 +89,15 @@
   cursor: pointer;
 }
 
+.User-profile-follow-data button {
+  padding: 0px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 550px) {
   .User-profile-left {
     max-width: none;

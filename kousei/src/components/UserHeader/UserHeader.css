@@ -1,0 +1,49 @@
+.User-header-main {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.User-details {
+  margin-left: 10px;
+}
+
+.User-header-full-name {
+  font-size: 25px;
+  font-weight: 700;
+  color: rgb(75, 35, 168);
+}
+
+.User-header-username {
+  color: rgb(160, 160, 160);
+}
+
+.User-header-title {
+  padding: 5px 20px;
+  border-bottom: 1px solid lightgray;
+  font-weight: 500;
+  color: rgb(32, 32, 32);
+  font-size: 24px;
+}
+.Back-icon {
+  color: rgb(32, 32, 32);
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.Back-icon:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .User-header-main {
+    flex-direction: column;
+  }
+
+  .User-details div {
+    text-align: center;
+  }
+}

@@ -26,7 +26,7 @@ export default function LikesList(props){
     }
     return(
         <div className="Likes-list">
-            <div style={{borderBottom:"1px solid lightgray", fontWeight:"bold", color:"rgb(255, 105, 51)"}}>Likes</div>
+            <div style={{borderBottom:"1px solid lightgray", fontWeight:"bold", color:"rgb(75, 35, 168)"}}>Likes</div>
             {likes.length<=0?
                 <div>Wow, still such empty!</div>:
                 <div>{likes.map(like =>(
