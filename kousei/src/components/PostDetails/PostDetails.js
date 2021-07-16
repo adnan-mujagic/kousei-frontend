@@ -28,6 +28,9 @@ export default function PostDetails(props) {
         getPost();
     }, [decoded.uid, props.post._id, liked])
 
+    const onUserLinkClick = () =>{
+        window.location = "/users/"+post.creator._id;
+    }
 
     const onLike = async () => {
         if (liked) {
@@ -48,10 +51,10 @@ export default function PostDetails(props) {
         <div className="Post-details">
             <div className="Post-details-left">
                 <div className="Post-details-header">
-                    <div className="Profile-picture-container">
+                    <div className="Profile-picture-container" onClick={onUserLinkClick} style={{marginLeft:"0px"}}>
                         <img className="Profile-picture" alt="Creator" src={post.creator.profile_picture} />
                     </div>
-                    <div className="Post-details-username">@{post.creator.username}</div>
+                    <div className="Post-details-username" onClick={onUserLinkClick}>@{post.creator.username}</div>
                 </div>
                 {post.image ?
                     <div className="Post-details-image-container">
@@ -60,6 +63,8 @@ export default function PostDetails(props) {
                     null
                 }
                 <IconContext.Provider value={{ className: "Post-icons" }}>
+                    
+                    <div className="Post-details-caption">{post.image?post.creator.username+": ":null}{post.caption}</div>
                     <div className="post-details-clickable-items">
                         <div className="Likes-counter" style={{marginLeft:"0px"}}>{likes} likes</div>
                         {liked ?
@@ -67,7 +72,6 @@ export default function PostDetails(props) {
                             <AiOutlineHeart onClick={onLike} />
                         }
                     </div>
-                    <div className="Post-details-caption">{post.creator.username}: {post.caption}</div>
                 </IconContext.Provider>
             </div>
             <div className="Post-details-right">

@@ -3,6 +3,7 @@
   border-radius: 20px;
   border: 1px solid lightgray;
   margin-right: 16px;
+  margin-bottom: 20px;
 }
 
 .Main-content-posts {
@@ -47,5 +48,6 @@
     flex: 1;
     margin-right: 0px;
     border-radius: 0px;
+    margin-bottom: 0px;
   }
 }

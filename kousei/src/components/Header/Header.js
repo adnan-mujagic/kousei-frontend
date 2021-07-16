@@ -23,9 +23,13 @@ export default function Header() {
         sessionStorage.removeItem("token");
         window.location = "/login";
     }
+
+    const onHeaderClick = () => {
+        window.location = "/dashboard";
+    }
     return (
         <div className="Header">
-            <div className="Header-left">kousei</div>
+            <div className="Header-left" onClick={onHeaderClick}>kousei</div>
 
             {loggedIn ?
                 <div className="Header-right">

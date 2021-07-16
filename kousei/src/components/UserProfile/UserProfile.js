@@ -145,7 +145,7 @@ export default function UserProfile(props){
                 <div className="User-profile-post-container">
                     {userPosts.length===0?<div>This user has no posts yet!</div>:
                     userPosts.map(post => (
-                        <ProfilePost key={post._id} post = {post} />
+                        <ProfilePost key={post._id} post = {post} user = {user} />
                     ))}
                 </div>
             </div>:

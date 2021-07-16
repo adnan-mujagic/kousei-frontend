@@ -5,7 +5,7 @@ import jwt from "../../generalized_functions/jwt"
 import prettyDate from "../../generalized_functions/prettyDate";
 import { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
-import { CgNotes } from "react-icons/cg";
+import { BiDetail } from "react-icons/bi";
 import Modal from "react-modal";
 import PostDetails from "../PostDetails/PostDetails";
 import LikesList from "../LikesList/LikesList";
@@ -79,7 +79,7 @@ export default function Post(props) {
 
             <div className="Post-footer">
                 <IconContext.Provider value={{ className: "Post-icons" }}>
-                    <div className="Caption"><strong>{props.post.creator.username}</strong>: {props.post.caption}</div>
+                    <div className="Caption"><strong>{props.post.image?props.post.creator.username+": ":null}</strong>{props.post.caption}</div>
                     <div className="Post-clickable-items">
                         <div className="Likes-counter" onClick={onLikesModalOpen}>{likes} likes</div>
                         {liked ?
@@ -87,7 +87,7 @@ export default function Post(props) {
                             <AiOutlineHeart onClick={onHeartClick} />
                         }
 
-                        <CgNotes onClick={onModalOpen} style={{ fontSize: "22px" }} />
+                        <BiDetail onClick={onModalOpen} style={{ fontSize: "22px" }} />
 
                     </div>
                     <div className="Post-date">
