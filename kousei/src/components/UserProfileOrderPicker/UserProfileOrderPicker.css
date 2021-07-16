@@ -8,9 +8,11 @@
   margin-right: 20px;
   position: relative;
   bottom: -1px;
+
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 3px 5px;
+  font-size: 14px;
   border-bottom: 2px solid transparent;
 }
 
@@ -22,4 +24,13 @@
 .User-profile-order-picker-icon {
   color: rgb(100, 100, 100);
   margin-right: 10px;
+}
+
+@media screen and (max-width: 550px) {
+  .User-profile-order-picker {
+    justify-content: space-between;
+  }
+  .Order-item {
+    margin-right: 0px;
+  }
 }

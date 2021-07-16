@@ -10,18 +10,26 @@ import { IconContext } from "react-icons/lib";
 import jwt from "./../../generalized_functions/jwt"
 
 const token = JSON.parse(sessionStorage.getItem("token"));
-const loggedInUser = jwt(token.token);
+let loggedInUser = null;
+if(token){
+    loggedInUser = jwt(token.token);
+}
 
 const isFollowed = (followers) => {
     console.log(followers);
-    if(followers.includes(loggedInUser.uid)){
+    if(!loggedInUser){
+        return false;
+    }
+    else if(followers.includes(loggedInUser.uid)){
         return true;
     }
     return false;
 }
 
 const checkOwner = (userId) => {
-    return loggedInUser.uid===userId;
+    if(loggedInUser){
+        return loggedInUser.uid===userId;
+    }
 }
 
 export default function UserProfile(props){

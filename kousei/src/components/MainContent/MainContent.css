@@ -1,11 +1,13 @@
 .Main-content {
   flex: 0.7;
-  box-shadow: 0px 0px 10px 0px #7e7e7e;
+  border-radius: 20px;
+  border: 1px solid lightgray;
   margin-right: 16px;
 }
 
 .Main-content-posts {
   background-color: rgb(241, 241, 241);
+  margin-top: 25px;
 }
 
 .Main-content-search {
@@ -44,5 +46,6 @@
   .Main-content {
     flex: 1;
     margin-right: 0px;
+    border-radius: 0px;
   }
 }

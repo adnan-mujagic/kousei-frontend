@@ -6,7 +6,7 @@ import Post from "../Post/Post";
 import { IconContext } from "react-icons";
 import { RiDashboardLine } from "react-icons/ri";
 import {BiSearch} from "react-icons/bi";
-import OrderPicker from "../OrderPicker/OrderPicker";
+import UserProfileOrderPicker from "../UserProfileOrderPicker/UserProfileOrderPicker";
 import Loading from "../Loading/Loading";
 
 export default function MainContent() {
@@ -32,7 +32,9 @@ export default function MainContent() {
                     <input className="Main-content-search" placeholder="Search for posts..." value={search} onChange={e=>setSearch(e.target.value)}/><BiSearch />
                     </div>
                 </div>
-                <OrderPicker order={order} setOrder={setOrder}/>
+                
+                <UserProfileOrderPicker setOrder={setOrder}/>
+                
             </IconContext.Provider>
             
             <div className="Main-content-posts">
