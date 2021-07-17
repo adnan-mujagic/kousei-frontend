@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2),
       marginRight: '10px',
-      borderRadius:'5px'
+      borderRadius:'5px',
+      outline:"none"
     },
   }));
 

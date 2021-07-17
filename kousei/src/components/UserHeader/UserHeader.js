@@ -10,7 +10,7 @@ export default function UserHeader(props){
 
     return(
         <div className="User-header">
-            <div className="User-header-title"><BiArrowBack onClick={props.close} className="Back-icon"/>{props.title}</div>
+            <div className="User-header-title"><BiArrowBack onClick={props.close} className="Back-icon"/><div>{props.title}</div></div>
             <div className="User-header-main">
                 <Avatar src={props.user.profile_picture} alt={props.user.username} style={pictureStyle}/>
                 <div className="User-details">

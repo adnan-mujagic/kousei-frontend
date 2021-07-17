@@ -23,15 +23,18 @@
 }
 
 .User-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 5px 20px;
   border-bottom: 1px solid lightgray;
   font-weight: 500;
   color: rgb(32, 32, 32);
-  font-size: 24px;
+  font-size: 28px;
 }
 .Back-icon {
   color: rgb(32, 32, 32);
-  font-size: 20px;
+  font-size: 30px;
   margin-right: 20px;
 }
 

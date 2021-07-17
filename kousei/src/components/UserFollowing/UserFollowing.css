@@ -3,7 +3,8 @@
   max-width: 500px;
   min-width: 250px;
   border-radius: 10px;
-  height: calc(90vh - 60px);
+  max-height: calc(75vh - 60px);
+  padding-bottom: 20px;
 }
 
 .User-followers-list {
