@@ -8,6 +8,7 @@ import { RiDashboardLine } from "react-icons/ri";
 import {BiSearch} from "react-icons/bi";
 import UserProfileOrderPicker from "../UserProfileOrderPicker/UserProfileOrderPicker";
 import Loading from "../Loading/Loading";
+import EmptyContent from "../EmptyContent/EmptyContent";
 
 export default function MainContent() {
     const [posts, setPosts] = useState(null);
@@ -41,7 +42,7 @@ export default function MainContent() {
                         posts.map(post => (
                             <Post key={post._id} post={post} />
                         )) :
-                        <div className="Main-content-empty-warning">Wow, such empty!</div>
+                        <EmptyContent />
                     
                     }
                     </div>:

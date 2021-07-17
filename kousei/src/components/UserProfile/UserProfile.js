@@ -12,6 +12,7 @@ import { Avatar, Modal } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import UserFollowers from "../UserFollowers/UserFollowers";
 import UserFollowing from "../UserFollowing/UserFollowing";
+import EmptyContent from "../EmptyContent/EmptyContent";
 
 const token = JSON.parse(sessionStorage.getItem("token"));
 let loggedInUser = null;
@@ -202,7 +203,7 @@ export default function UserProfile(props){
                 <div className="User-profile-right">
                 <UserProfileOrderPicker setOrder={setOrder}/>
                 <div className="User-profile-post-container">
-                    {userPosts.length===0?<div>This user has no posts yet!</div>:
+                    {userPosts.length===0?<EmptyContent />:
                     userPosts.map(post => (
                         <ProfilePost key={post._id} post = {post} user = {user} />
                     ))}

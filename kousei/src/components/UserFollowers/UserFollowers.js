@@ -4,6 +4,7 @@ import UserHeader from "../UserHeader/UserHeader";
 import { useState, useEffect } from "react";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import Loading from "../Loading/Loading";
+import EmptyContent from "../EmptyContent/EmptyContent";
 
 export default function UserFollowers(props){
     
@@ -33,11 +34,15 @@ export default function UserFollowers(props){
     return(
         <div className="User-followers">
             <UserHeader user={user} close={props.handleClose} title="Followers" count={user.followers.length}/>
-            <div className="User-followers-list">
-                {user.followers.map(follower => (
-                    <UserListCard key={follower._id} user={follower}/>
-                ))}
-            </div>
+            {user.followers.length>0?
+                <div className="User-followers-list">
+                    {user.followers.map(follower => (
+                        <UserListCard key={follower._id} user={follower}/>
+                    ))}
+                </div>:
+                <EmptyContent />
+            }
+            
         </div>
     )
 }
