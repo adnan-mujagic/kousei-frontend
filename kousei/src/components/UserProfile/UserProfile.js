@@ -151,13 +151,13 @@ export default function UserProfile(props){
 
     const followerModalBody = (
         <div className={classes.root} style={positionModal}>
-            <UserFollowers user={user} handleClose={handlefollowerModalClose}/>
+            <UserFollowers user_id={user._id} handleClose={handlefollowerModalClose}/>
         </div>
     )
 
     const followingModalBody = (
         <div className={classes.root} style={positionModal}>
-            <UserFollowing user={user} handleClose={handlefollowingModalClose}/>
+            <UserFollowing user_id={user._id} handleClose={handlefollowingModalClose}/>
         </div>
     )
 
