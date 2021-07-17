@@ -5,7 +5,7 @@
 .Post-header {
   display: flex;
   align-items: center;
-  padding: 5px 0px;
+  padding: 16px 8px;
   border-top: 1px solid lightgray;
 }
 .Post-image {
@@ -17,7 +17,8 @@
 }
 .Post-creator {
   margin-left: 5px;
-  color: rgb(160, 160, 160);
+  color: rgb(32, 32, 32);
+  font-size: 18px;
 }
 
 .Post-creator:hover {
@@ -30,15 +31,15 @@
 }
 
 .Post-date {
-  padding-left: 10px;
-  padding-bottom: 5px;
+  padding-left: 16px;
+  padding-bottom: 16px;
   border-bottom: 1px solid lightgray;
   font-size: 12px;
 }
 
 .Likes-counter {
   color: rgb(32, 32, 32);
-  margin-left: 10px;
+  margin-left: 16px;
   font-size: 12px;
   font-weight: bold;
 }
@@ -59,7 +60,7 @@
 }
 
 .Caption {
-  padding: 0px 10px;
+  padding: 0px 16px;
   font-size: 16px;
   color: rgb(32, 32, 32);
 }
