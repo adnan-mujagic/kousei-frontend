@@ -2,6 +2,7 @@ import "./Header.css";
 import '../../Responsive.css'
 import { useState, useEffect } from "react";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
+import Avatar from '@material-ui/core/Avatar';
 import jwt from "../../generalized_functions/jwt"
 
 export default function Header() {
@@ -39,9 +40,7 @@ export default function Header() {
                 <div className="Header-right">
                     <button className="Colored-button" onClick={handleLogOut}>Log Out</button>
                     {user ?
-                        <div className="Profile-picture-container Header-image">
-                            <img className="Profile-picture" alt="User" src={user.profile_picture} onClick={onProfileImageClick}/>
-                        </div> :
+                        <Avatar src={user.profile_picture} alt={user.username} onClick={onProfileImageClick} style={{border:"1px solid rgb(240,240,240)",marginLeft:"16px", height:"30px", width:"30px"}}/> :
                         null
                     }
 

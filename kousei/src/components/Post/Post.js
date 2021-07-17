@@ -1,4 +1,5 @@
 import "./Post.css"
+import Avatar from '@material-ui/core/Avatar';
 import { IconContext } from "react-icons";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import jwt from "../../generalized_functions/jwt"
@@ -62,9 +63,7 @@ export default function Post(props) {
     return (
         <div className="Post">
             <div className="Post-header">
-                <div className="Profile-picture-container" style={{marginLeft:"8px"}}>
-                    <img onClick={onProfileClick} className="Profile-picture" src={props.post.creator.profile_picture} alt="Creator" />
-                </div>
+                <Avatar onClick={onProfileClick} src={props.post.creator.profile_picture} alt={props.post.creator.username} style={{border:"1px solid rgb(240,240,240)"}}/>
                 <div className="Post-creator" onClick={onProfileClick}>
                     @{props.post.creator.username}
                 </div>

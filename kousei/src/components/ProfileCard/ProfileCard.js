@@ -1,5 +1,6 @@
 import "./ProfileCard.css";
 import { useState, useEffect } from "react";
+import Avatar from '@material-ui/core/Avatar';
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import jwt from "../../generalized_functions/jwt"
 
@@ -34,10 +35,7 @@ export default function ProfileCard(){
 
     return(
         <div className="Profile-card">
-            
-            <div className="Profile-card-image" onClick={handleProfileClick}>
-                <img src={user.profile_picture} alt="Logged in User"/>
-            </div>
+            <Avatar src={user.profile_picture} alt={user.username} style={{height:"52px", width:"52px"}}/>
             <div className="Profile-card-credentials">
                 <h2>{user.full_name}</h2>
                 <p onClick={handleProfileClick}>@{user.username}</p>

@@ -8,6 +8,7 @@ import UserProfileOrderPicker from "../UserProfileOrderPicker/UserProfileOrderPi
 import {BiBook, BiUserCircle, BiGridAlt, BiEnvelope} from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
 import jwt from "./../../generalized_functions/jwt"
+import { Avatar } from "@material-ui/core";
 
 const token = JSON.parse(sessionStorage.getItem("token"));
 let loggedInUser = null;
@@ -119,9 +120,7 @@ export default function UserProfile(props){
     return (
         <div className="User-profile">
             <div className="User-profile-left">
-                <div className="Profile-picture-container" style={{height:"200px", width:"200px", marginLeft:"0px"}}>
-                    <img className="Profile-picture" src={user.profile_picture} alt={user.username}/>
-                </div>
+                <Avatar src={user.profile_picture} alt={user.username} style={{width:"200px", height:"200px"}}/>
                 <IconContext.Provider value={{className:"User-info-icons"}}>
                     <div className="User-profile-information">
                         <div className="User-profile-full-name">{user.full_name}</div>
