@@ -5,10 +5,12 @@
   margin-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid lightgray;
+  padding-left: 20px;
 }
 
 .User-details {
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .User-header-full-name {
@@ -41,6 +43,7 @@
 @media screen and (max-width: 1000px) {
   .User-header-main {
     flex-direction: column;
+    padding-left: 0px;
   }
 
   .User-details div {

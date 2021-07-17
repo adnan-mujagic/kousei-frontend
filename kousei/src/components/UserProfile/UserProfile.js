@@ -8,13 +8,27 @@ import UserProfileOrderPicker from "../UserProfileOrderPicker/UserProfileOrderPi
 import {BiBook, BiUserCircle, BiGridAlt, BiEnvelope} from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
 import jwt from "./../../generalized_functions/jwt"
-import { Avatar } from "@material-ui/core";
+import { Avatar, Modal } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import UserFollowers from "../UserFollowers/UserFollowers";
+import UserFollowing from "../UserFollowing/UserFollowing";
 
 const token = JSON.parse(sessionStorage.getItem("token"));
 let loggedInUser = null;
 if(token){
     loggedInUser = jwt(token.token);
 }
+
+const useStyles = makeStyles((theme) => ({
+    root:{
+        boxShadow: theme.shadows[5],
+        position:"absolute",
+        borderRadius:"5px",
+        background:theme.palette.background.paper,
+        maxWidth:"500px",
+        marginRight:"10px"
+    }
+}))
 
 const isFollowed = (followers) => {
     
@@ -41,13 +55,17 @@ const checkOwner = (userId) => {
 export default function UserProfile(props){
     const {id} = useParams();
     
-
     const [user, setUser] = useState(null);
     const [userPosts, setUserPosts] = useState(null);
     const [order, setOrder] = useState("normal")
     const [following, setFollowing] = useState(null)
     const [isOwner, setIsOwner] = useState(false);
     const [loading, setLoading] = useState(true);
+
+    //MODAL DATA HERE!
+    const classes = useStyles();
+    const [followerModalOpen, setFollowerModalOpen] = useState(false);
+    const [followingModalOpen, setFollowingModalOpen] = useState(false);
 
     const onFollowClick = async () => {
         const res = await fetchDataWithAuth("/users/"+id+"/followers", "PUT");
@@ -104,11 +122,25 @@ export default function UserProfile(props){
     }, [id, order, setOrder])
 
     const onFollowersClick = () => {
-        window.location = "/users/"+user._id+"/followers"
+        setFollowerModalOpen(true);
+    }
+
+    const handlefollowerModalClose = () =>{
+        setFollowerModalOpen(false);
     }
 
     const onFollowingClick = () => {
-        window.location = "/users/"+user._id+"/following"
+        setFollowingModalOpen(true);
+    }
+
+    const handlefollowingModalClose = () =>{
+        setFollowingModalOpen(false);
+    }
+
+    const positionModal = {
+        top:"50%",
+        left:"50%",
+        transform: "translate(-50%,-50%)",
     }
     
     if(!user){
@@ -116,6 +148,18 @@ export default function UserProfile(props){
             <Loading />
         )
     }
+
+    const followerModalBody = (
+        <div className={classes.root} style={positionModal}>
+            <UserFollowers user={user} handleClose={handlefollowerModalClose}/>
+        </div>
+    )
+
+    const followingModalBody = (
+        <div className={classes.root} style={positionModal}>
+            <UserFollowing user={user} handleClose={handlefollowingModalClose}/>
+        </div>
+    )
 
     return (
         <div className="User-profile">
@@ -166,6 +210,24 @@ export default function UserProfile(props){
             </div>:
             <Loading />
             }
+
+            <Modal
+                open={followerModalOpen}
+                onClose={handlefollowerModalClose}
+                aria-labelledby="Follower Modal"
+                aria-describedby="This modal shows a list of user followers"
+            >
+                {followerModalBody}
+            </Modal>
+
+            <Modal
+                open={followingModalOpen}
+                onClose={handlefollowingModalClose}
+                aria-labelledby="Following Modal"
+                aria-describedby="This modal shows a list of user following!"
+            >
+                {followingModalBody}
+            </Modal>
         </div>
     )
 }

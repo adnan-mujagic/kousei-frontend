@@ -1,18 +1,18 @@
 import "./UserHeader.css";
 import {BiArrowBack} from "react-icons/bi";
+import { Avatar } from "@material-ui/core";
 export default function UserHeader(props){
 
-    const onBackClick = () => {
-        window.location = "/users/"+props.user._id;
+    const pictureStyle = {
+        height:"150px",
+        width:"150px",
     }
 
     return(
         <div className="User-header">
-            <div className="User-header-title"><BiArrowBack onClick={onBackClick} className="Back-icon"/>{props.title}</div>
+            <div className="User-header-title"><BiArrowBack onClick={props.close} className="Back-icon"/>{props.title}</div>
             <div className="User-header-main">
-                <div className="Profile-picture-container" style={{height:"150px", width:"150px"}}>
-                    <img className="Profile-picture" src={props.user.profile_picture} alt={props.user.full_name}/>
-                </div>
+                <Avatar src={props.user.profile_picture} alt={props.user.username} style={pictureStyle}/>
                 <div className="User-details">
                     <div className="User-header-full-name">{props.user.full_name}</div>
                     <div className="User-header-username">@{props.user.username}</div>

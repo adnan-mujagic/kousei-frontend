@@ -7,20 +7,43 @@ import prettyDate from "../../generalized_functions/prettyDate";
 import { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { BiDetail } from "react-icons/bi";
-import Modal from "react-modal";
 import PostDetails from "../PostDetails/PostDetails";
 import LikesList from "../LikesList/LikesList";
+import Modal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core/styles';
+
+function getModalStyle() {
+    const top = 50
+    const left = 50
+
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
+}
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      position: 'absolute',
+      maxWidth: 700,
+      backgroundColor: theme.palette.background.paper,
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2),
+      marginRight: '10px',
+      borderRadius:'5px'
+    },
+  }));
 
 export default function Post(props) {
     const token = JSON.parse(sessionStorage.getItem("token"));
     const decoded = jwt(token.token);
     const [liked, setLiked] = useState(props.post.likes.includes(decoded.uid));
     const [likes, setLikes] = useState(props.post.likes.length);
+    const classes = useStyles();
+    const [modalStyle] = useState(getModalStyle)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLikesModalOpen, setIsLikesModalOpen] = useState(false);
-    Modal.setAppElement("#root");
-
-
 
     const onProfileClick = () => {
         window.location = "/users/" + props.post.creator._id;
@@ -41,6 +64,20 @@ export default function Post(props) {
     const onLikesModalClose = () => {
         setIsLikesModalOpen(false);
     }
+
+    const postDetailModalBody = (
+        <div style={modalStyle} className={classes.paper}>
+            <PostDetails post={props.post} liked={liked} />
+            <button style={{ marginTop: "10px" }} className="Colored-button" onClick={onModalClose}>Close</button>
+        </div>
+    )
+
+    const likesModalBody = (
+        <div style={modalStyle} className={classes.paper}>
+            <LikesList post={props.post}/>
+            <button style={{ marginTop: "10px" }} className="Colored-button" onClick={onLikesModalClose}>Close</button>
+        </div>
+    )
 
     const onHeartClick = async () => {
         if (liked) {
@@ -97,26 +134,21 @@ export default function Post(props) {
             </div>
 
             <Modal
-                isOpen={isModalOpen}
-                onRequestClose={onModalClose}
-                contentLabel="Example Modal"
-                className="Modal"
-                overlayClassName="Overlay"
-
+                open={isModalOpen}
+                onClose={onModalClose}
+                aria-labelledby="Post Details Modal"
+                aria-describedby="Showing the details about the post!"
             >
-                <PostDetails post={props.post} onHeartClick={onHeartClick} liked={liked} />
-                <button style={{ marginTop: "10px" }} className="Colored-button" onClick={onModalClose}>Close</button>
+                {postDetailModalBody}
             </Modal>
 
             <Modal
-                isOpen={isLikesModalOpen}
-                onRequestClose={onLikesModalClose}
-                contentLabel="Example Modal"
-                className="Modal"
-                overlayClassName="Overlay"
-
+                open={isLikesModalOpen}
+                onClose={onLikesModalClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
             >
-                <LikesList post={props.post}/>
+                {likesModalBody}
             </Modal>
         </div>
     )
