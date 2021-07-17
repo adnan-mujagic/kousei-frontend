@@ -30,6 +30,7 @@
 @media screen and (max-width: 550px) {
   .User-profile-order-picker {
     justify-content: space-between;
+    border-bottom: 0px;
   }
   .Order-item {
     margin-right: 0px;
