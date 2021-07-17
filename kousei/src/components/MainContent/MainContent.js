@@ -26,15 +26,12 @@ export default function MainContent() {
         <div className="Main-content">
             <IconContext.Provider value={{ className: "Section-icon" }}>
                 <div className="Section"><RiDashboardLine /> <div>Dashboard</div></div>
-                
+                <UserProfileOrderPicker setOrder={setOrder}/>
                 <div className="Main-content-search-container">
                     <div className="Main-content-search-icon-wrap">
                     <input className="Main-content-search" placeholder="Search for posts..." value={search} onChange={e=>setSearch(e.target.value)}/><BiSearch />
                     </div>
                 </div>
-                
-                <UserProfileOrderPicker setOrder={setOrder}/>
-                
             </IconContext.Provider>
             
             <div className="Main-content-posts">

@@ -3,7 +3,7 @@
   justify-content: space-between;
   height: 10vh;
   align-items: center;
-  box-shadow: 0px 0px 10px 0px #7e7e7e;
+  border-bottom: 1px solid lightgray;
 }
 
 .Header-left {

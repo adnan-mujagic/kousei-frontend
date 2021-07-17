@@ -5,13 +5,13 @@
 
 .Order-item {
   display: flex;
-  margin-right: 20px;
+  margin-right: 16px;
   position: relative;
   bottom: -1px;
 
   display: flex;
   align-items: center;
-  padding: 3px 5px;
+  padding: 5px 8px;
   font-size: 14px;
   border-bottom: 2px solid transparent;
 }
@@ -24,6 +24,7 @@
 .User-profile-order-picker-icon {
   color: rgb(100, 100, 100);
   margin-right: 10px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 550px) {

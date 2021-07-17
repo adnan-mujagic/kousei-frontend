@@ -1,7 +1,13 @@
-.Dashboard{
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 16px;
-    display: flex;
+.Dashboard {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  display: flex;
+}
+
+@media screen and (max-width: 750px) {
+  .Dashboard {
+    margin-top: 0px;
+  }
 }

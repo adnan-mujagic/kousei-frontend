@@ -8,7 +8,6 @@
 
 .Main-content-posts {
   background-color: rgb(241, 241, 241);
-  margin-top: 25px;
 }
 
 .Main-content-search {
@@ -24,7 +23,6 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  border-top: 1px solid lightgray;
 }
 
 .Main-content-search-icon-wrap {
@@ -49,5 +47,7 @@
     margin-right: 0px;
     border-radius: 0px;
     margin-bottom: 0px;
+    border-top: 0px;
+    border-right: 0px;
   }
 }
