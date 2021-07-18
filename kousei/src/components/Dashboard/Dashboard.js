@@ -2,7 +2,8 @@ import "./Dashboard.css";
 import LeftNavigation from "../LeftNavigation/LeftNavigation";
 import MainContent from "../MainContent/MainContent";
 import FloatingActionBtn from "../FloatingActionBtn/FloatingActionBtn";
-import {Modal, makeStyles} from "@material-ui/core"
+import {Modal, Snackbar, makeStyles} from "@material-ui/core"
+import { Alert } from "@material-ui/lab"
 import { useState } from "react";
 import CreatePostModal from "../CreatePostModal/CreatePostModal";
 
@@ -23,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const styles = useStyles();
     const [createModalOpen, setCreateModalOpen] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
+    const [alertOpen, setAlertOpen] = useState(false);
 
     const handleModalClose = () => {
         setCreateModalOpen(false);
@@ -31,10 +34,15 @@ export default function Dashboard() {
     const handleModalOpen = () => {
         setCreateModalOpen(true);
     }
+
+    const onSnackbarClose = () => {
+        setAlertOpen(false);
+        setAlertMessage("");
+    }
     
     const body = (
         <div className={styles.paper}>
-            <CreatePostModal />
+            <CreatePostModal setAlertOpen={setAlertOpen} setAlertMessage={setAlertMessage} handleModalClose={handleModalClose}/>
         </div>
     )
 
@@ -51,6 +59,13 @@ export default function Dashboard() {
             >
                 {body}
             </Modal>
+            <Snackbar
+                autoHideDuration={3000}
+                open={alertOpen}
+                onClose={onSnackbarClose}
+            >
+                <Alert severity="success">{alertMessage}</Alert>
+            </Snackbar> 
         </div>
         
     )

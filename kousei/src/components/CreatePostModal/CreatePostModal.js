@@ -1,5 +1,6 @@
 import "./CreatePostModal.css";
-import { TextField, Button, Switch, FormGroup, FormControlLabel, makeStyles } from "@material-ui/core";
+import { TextField, Button, Switch, FormGroup, FormControlLabel, makeStyles} from "@material-ui/core";
+
 import { useState } from "react";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import decodeSessionToken from "../../generalized_functions/decodeSessionToken"
@@ -44,6 +45,8 @@ export default function CreatePostModal(props){
         })
     }
 
+    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = await fetchDataWithAuth("/users/"+decoded.uid+"/posts", "POST", post);
@@ -51,7 +54,9 @@ export default function CreatePostModal(props){
             alert(res.status);
         }
         else{
-            alert(res.status);
+            props.handleModalClose();
+            props.setAlertMessage(res.status);
+            props.setAlertOpen(true);
         }
     }
 
@@ -72,7 +77,8 @@ export default function CreatePostModal(props){
                         
                         <Button color="secondary" type="submit">Post</Button>
                     </div>
-                </div>  
+                </div>
+                 
         </form>
     )
     
