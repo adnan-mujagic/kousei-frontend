@@ -9,32 +9,35 @@ import {BiSearch} from "react-icons/bi";
 import UserProfileOrderPicker from "../UserProfileOrderPicker/UserProfileOrderPicker";
 import Loading from "../Loading/Loading";
 import EmptyContent from "../EmptyContent/EmptyContent";
-import CreatePostModal from "../CreatePostModal/CreatePostModal";
+import FollowerOnlySlider from "../FollowerOnlySlider/FollowerOnlySlider";
 
 export default function MainContent() {
     const [posts, setPosts] = useState(null);
     const [search, setSearch] = useState("");
     const [order, setOrder] = useState("normal");
+    const [filter, setFilter] = useState("");
     useEffect(() => {
         async function getPosts() {
-            const urlSuffix = "?search="+search+"&order="+order
+            const urlSuffix = "?search="+search+"&order="+order+"&filter="+filter;
             const result = await fetchDataWithAuth("/posts"+urlSuffix, "GET");
             setPosts(result.data);
         }
         getPosts();
-    }, [search, order])
+    }, [search, order, filter])
 
     return (
         <div className="Main-content">
             <IconContext.Provider value={{ className: "Section-icon" }}>
+                
                 <div className="Section"><RiDashboardLine /> <div>Dashboard</div></div>
-                <CreatePostModal hidden={true}/>
                 <UserProfileOrderPicker setOrder={setOrder}/>
+                <FollowerOnlySlider setFilter={setFilter} />
                 <div className="Main-content-search-container">
                     <div className="Main-content-search-icon-wrap">
                     <input className="Main-content-search" placeholder="Search for posts..." value={search} onChange={e=>setSearch(e.target.value)}/><BiSearch />
                     </div>
                 </div>
+                
             </IconContext.Provider>
             
             <div className="Main-content-posts">

@@ -10,9 +10,6 @@ import UserFollowers from '../UserFollowers/UserFollowers';
 import UserFollowing from '../UserFollowing/UserFollowing';
 import useToken from './useToken';
 
-
-
-
 function App() {
   const { token, setToken } = useToken();
 

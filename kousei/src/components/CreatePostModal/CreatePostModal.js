@@ -1,5 +1,5 @@
 import "./CreatePostModal.css";
-import { TextField, Button, Switch,FormLabel, makeStyles } from "@material-ui/core";
+import { TextField, Button, Switch, FormGroup, FormControlLabel, makeStyles } from "@material-ui/core";
 import { useState } from "react";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import decodeSessionToken from "../../generalized_functions/decodeSessionToken"
@@ -35,12 +35,6 @@ export default function CreatePostModal(props){
         comments_enabled:true,
     });
 
-    const [postCreateOpen, setPostCreateOpen] = useState(false);
-
-    const handleClick = () => {
-        setPostCreateOpen(!postCreateOpen);
-    }
-
     const onPostChange = (e, fieldName, checkbox) => {
         let value = null;
         checkbox?value=e.target.checked:value=e.target.value;
@@ -63,28 +57,22 @@ export default function CreatePostModal(props){
 
     return(
         <form className={props.hidden?" Hidden-create-post":""+classes.createPost+" Create-Post-Modal"} onSubmit={handleSubmit}>
-            {postCreateOpen?
+            
                 <div className="Create-post-wrapper">
-                    <Button color="secondary" onClick={handleClick} >Hide</Button>
                     <TextField label="Caption" required variant="outlined" value={post.caption}  onChange={e => onPostChange(e, "caption")}/>
                     <TextField className={classes.inputs} label="Image URL" variant="outlined" value={post.image}  onChange={e => onPostChange(e, "image")}/>
                     
                     <div className="Create-post-footer">
-                        <FormLabel component="legend">Enable Comments?</FormLabel>
-                        <Switch
-                            value={post.comments_enabled}
-                            onChange={e => onPostChange(e, "comments_enabled", true)}
-                        />
+                        <FormGroup row >
+                            <FormControlLabel
+                                control={<Switch checked={post.comments_enabled} onChange={e => onPostChange(e, "comments_enabled", true)} name="checkedA" />}
+                                label="Enable Comments?"
+                            />
+                        </FormGroup>
+                        
                         <Button color="secondary" type="submit">Post</Button>
                     </div>
-                </div>:
-                <div className="Create-post-wrapper">
-                    <Button color="secondary" onClick={handleClick} >Create Post</Button>
-                </div>
-                
-            
-            }
-            
+                </div>  
         </form>
     )
     

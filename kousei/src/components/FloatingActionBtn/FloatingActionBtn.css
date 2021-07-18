@@ -1,0 +1,18 @@
+.Floating-action-btn {
+  z-index: 20;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgb(50, 50, 50);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Floating-action-btn:hover {
+  cursor: pointer;
+}
