@@ -9,6 +9,7 @@ import {BiSearch} from "react-icons/bi";
 import UserProfileOrderPicker from "../UserProfileOrderPicker/UserProfileOrderPicker";
 import Loading from "../Loading/Loading";
 import EmptyContent from "../EmptyContent/EmptyContent";
+import CreatePostModal from "../CreatePostModal/CreatePostModal";
 
 export default function MainContent() {
     const [posts, setPosts] = useState(null);
@@ -27,6 +28,7 @@ export default function MainContent() {
         <div className="Main-content">
             <IconContext.Provider value={{ className: "Section-icon" }}>
                 <div className="Section"><RiDashboardLine /> <div>Dashboard</div></div>
+                <CreatePostModal hidden={true}/>
                 <UserProfileOrderPicker setOrder={setOrder}/>
                 <div className="Main-content-search-container">
                     <div className="Main-content-search-icon-wrap">

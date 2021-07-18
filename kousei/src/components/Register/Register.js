@@ -1,5 +1,5 @@
 import "./Register.css";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { Button, TextField, makeStyles} from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 import fetchDataWithoutAuth from "../../generalized_functions/fetchWithoutAuth";
@@ -26,11 +26,6 @@ export default function Register(props){
         bio:"",
         profile_picture:""
     });
-
-    useEffect(() => {
-        
-        console.log(user)
-    }, [user])
 
     const [stage, setStage] = useState("one");
 

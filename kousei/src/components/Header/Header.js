@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import fetchDataWithAuth from "../../generalized_functions/fetchWithAuth";
 import Avatar from '@material-ui/core/Avatar';
 import jwt from "../../generalized_functions/jwt"
+import { Button } from "@material-ui/core";
 
 export default function Header() {
     const [loggedIn] = useState(sessionStorage.getItem("token") ? true : false);
@@ -38,7 +39,7 @@ export default function Header() {
 
             {loggedIn ?
                 <div className="Header-right">
-                    <button className="Colored-button" onClick={handleLogOut}>Log Out</button>
+                    <Button color="secondary" onClick={handleLogOut}>Log Out</Button>
                     {user ?
                         <Avatar src={user.profile_picture} alt={user.username} onClick={onProfileImageClick} style={{border:"1px solid rgb(240,240,240)",marginLeft:"16px", height:"30px", width:"30px"}}/> :
                         null
@@ -47,7 +48,7 @@ export default function Header() {
                 </div>
                 :
                 <div className="Header-right">
-                    <button className="Colored-button">Sing in</button>
+                    <Button color="secondary">Log In</Button>
                 </div>
 
             }
